@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup Day · $997 · The Daly Creative</title>
+<meta name="description" content="One day. Fixed scope. Brand, web, and AI automation built around how your business actually runs. $997 founders pricing, first 40 only.">
+<link rel="icon" type="image/svg+xml" href="/assets/tdc-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+  @import url('https://fonts.cdnfonts.com/css/aileron');
+
+  :root { --teal: #2f9ea0; --orange: #ff8a3d; }
+  body[data-theme="light"] {
+    --bg-grad-1: rgba(47,158,160,0.18); --bg-grad-2: rgba(255,138,61,0.22);
+    --bg-base-1: #d8ecec; --bg-base-2: #fff5e8; --bg-base-3: #ffdcc1;
+    --card-bg: rgba(255,255,255,0.6); --card-border: rgba(255,255,255,0.8);
+    --card-shadow: 0 30px 60px -20px rgba(47,158,160,0.25), 0 4px 16px rgba(0,0,0,0.04);
+    --nav-bg: rgba(255,255,255,0.7);
+    --inner-bg: rgba(255,255,255,0.72); --inner-border: rgba(255,255,255,0.9);
+    --ink: #1a2b2c; --ink-soft: #5a6e70; --ink-faint: #8a9c9e;
+    --divider: rgba(26,43,44,0.08);
+    --accent-teal: #2f9ea0; --accent-orange: #ff8a3d;
+    --button-bg: linear-gradient(135deg, #ff8a3d 0%, #2f9ea0 100%);
+    --button-shadow: 0 10px 24px rgba(255,138,61,0.35);
+    --blob-1: rgba(47,158,160,0.5); --blob-2: rgba(255,138,61,0.45);
+  }
+  body[data-theme="dark"] {
+    --bg-grad-1: rgba(47,158,160,0.25); --bg-grad-2: rgba(255,138,61,0.28);
+    --bg-base-1: #0a1314; --bg-base-2: #1a2426; --bg-base-3: #11181a;
+    --card-bg: rgba(255,255,255,0.055); --card-border: rgba(255,255,255,0.12);
+    --card-shadow: 0 30px 60px -20px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.2);
+    --nav-bg: rgba(255,255,255,0.04);
+    --inner-bg: rgba(255,255,255,0.04); --inner-border: rgba(255,255,255,0.08);
+    --ink: #eef5f5; --ink-soft: #a8b8b9; --ink-faint: #6a7a7c;
+    --divider: rgba(255,255,255,0.08);
+    --accent-teal: #4ebac0; --accent-orange: #ff9e5a;
+    --button-bg: linear-gradient(135deg, #ff9e5a 0%, #4ebac0 100%);
+    --button-shadow: 0 10px 24px rgba(255,138,61,0.35);
+    --blob-1: rgba(47,158,160,0.45); --blob-2: rgba(255,138,61,0.45);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh;
+    font-family: "Aileron", "Manrope", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(at 10% 15%, var(--bg-grad-1) 0%, transparent 55%),
+      radial-gradient(at 90% 85%, var(--bg-grad-2) 0%, transparent 55%),
+      linear-gradient(135deg, var(--bg-base-1) 0%, var(--bg-base-2) 50%, var(--bg-base-3) 100%);
+    background-attachment: fixed;
+    transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.3s ease;
+    overflow-x: hidden;
+  }
+  body::before, body::after {
+    content:""; position: fixed; border-radius: 50%;
+    filter: blur(100px); z-index: 0; pointer-events: none;
+  }
+  body::before { width:620px; height:620px; background:radial-gradient(circle,var(--blob-1),transparent 70%); top:-180px; left:-200px; }
+  body::after { width:680px; height:680px; background:radial-gradient(circle,var(--blob-2),transparent 70%); bottom:-200px; right:-220px; }
+
+  .tdc-logo {
+    display: inline-flex; align-items: baseline; line-height: 1;
+    color: var(--ink); font-family: "Aileron", sans-serif;
+    font-weight: 800; letter-spacing: -0.05em;
+  }
+  .spark-inline {
+    display: inline-block; width: 0.78em; height: 0.78em;
+    margin-left: 0.12em; transform: translateY(-0.06em) rotate(8deg);
+    filter: drop-shadow(0 0.06em 0.16em rgba(255,138,61,0.4));
+  }
+  .spark-inline svg { width: 100%; height: 100%; display: block; }
+
+  /* NAV */
+  .nav { position: sticky; top: 16px; z-index: 100; max-width: 1280px; margin: 16px auto 0; padding: 0 24px; }
+  .nav-inner {
+    background: var(--nav-bg); backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 100px;
+    padding: 10px 12px 10px 24px; box-shadow: var(--card-shadow);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .nav .tdc-logo { font-size: 24px; }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-link { font-family: "Aileron", sans-serif; font-weight: 700; font-size: 13px; color: var(--ink-soft); text-decoration: none; }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .toggle {
+    display: flex; align-items: center; gap: 4px;
+    background: var(--inner-bg); border: 1px solid var(--inner-border);
+    border-radius: 100px; padding: 3px;
+  }
+  .toggle button {
+    font-family: "Manrope", sans-serif; font-weight: 700; font-size: 10.5px;
+    padding: 6px 11px; border: none; background: transparent;
+    color: var(--ink-faint); border-radius: 100px; cursor: pointer;
+  }
+  .toggle button.active { background: var(--button-bg); color: white; box-shadow: var(--button-shadow); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 22px;
+    background: var(--button-bg); color: white;
+    border-radius: 100px; font-family: "Aileron", sans-serif;
+    font-size: 14px; font-weight: 700;
+    box-shadow: var(--button-shadow); text-decoration: none; border: none; cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-sm { padding: 9px 16px; font-size: 12.5px; }
+  .btn-lg { padding: 16px 32px; font-size: 15.5px; }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 22px;
+    background: var(--card-bg); backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border); border-radius: 100px;
+    font-family: "Aileron", sans-serif; font-size: 14px; font-weight: 700;
+    color: var(--ink); text-decoration: none;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative; z-index: 1; max-width: 920px; margin: 0 auto;
+    padding: 80px 40px 60px; text-align: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 14px 7px 10px;
+    background: var(--card-bg); backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border); border-radius: 100px;
+    font-family: "Manrope", sans-serif; font-size: 11.5px; font-weight: 700;
+    color: var(--ink-soft); margin-bottom: 26px;
+    box-shadow: var(--card-shadow);
+  }
+  .eyebrow .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent-orange); box-shadow: 0 0 12px var(--accent-orange);
+    animation: pulse 2.5s infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+  .hero h1 {
+    font-size: 84px; font-weight: 800; line-height: 0.96;
+    letter-spacing: -0.045em; margin-bottom: 24px;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 20px; line-height: 1.5; color: var(--ink-soft);
+    max-width: 60ch; margin: 0 auto 36px;
+  }
+  .hero-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .hero-price {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 13px; color: var(--ink-faint);
+  }
+  .hero-price strong { color: var(--ink); font-weight: 700; }
+  .strike { text-decoration: line-through; opacity: 0.5; margin: 0 4px; }
+
+  /* SECTION */
+  .section { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 60px 40px; }
+  .section-eyebrow {
+    font-family: "Manrope", sans-serif; font-size: 11px;
+    font-weight: 800; color: var(--accent-orange);
+    text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 14px;
+  }
+  .section-h2 {
+    font-size: 42px; font-weight: 800; letter-spacing: -0.035em;
+    line-height: 1.05; margin-bottom: 14px;
+  }
+  .section-h2 .accent {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .section-sub {
+    font-size: 16px; line-height: 1.5; color: var(--ink-soft);
+    max-width: 56ch; margin-bottom: 32px;
+  }
+
+  /* WHAT YOU GET */
+  .deliverables { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .deliverable {
+    background: var(--card-bg); backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 18px;
+    padding: 22px 24px; box-shadow: var(--card-shadow);
+  }
+  .deliverable-num {
+    font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 800;
+    color: var(--accent-orange); letter-spacing: 0.15em; margin-bottom: 8px;
+  }
+  .deliverable-name {
+    font-size: 17px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px;
+  }
+  .deliverable-desc {
+    font-size: 13.5px; line-height: 1.55; color: var(--ink-soft);
+  }
+
+  /* TIMELINE */
+  .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .day-card {
+    background: var(--card-bg); backdrop-filter: blur(28px);
+    border: 1px solid var(--card-border); border-radius: 18px;
+    padding: 22px 18px; box-shadow: var(--card-shadow);
+    text-align: center;
+  }
+  .day-label {
+    font-family: "Manrope", sans-serif; font-size: 10px; font-weight: 800;
+    color: var(--accent-orange); letter-spacing: 0.16em;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .day-action {
+    font-size: 14px; font-weight: 800; letter-spacing: -0.015em; margin-bottom: 6px;
+  }
+  .day-detail {
+    font-family: "Manrope", sans-serif; font-size: 11px;
+    color: var(--ink-soft); line-height: 1.5;
+  }
+
+  /* WHO IT'S FOR */
+  .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .fit-card {
+    background: var(--card-bg); backdrop-filter: blur(28px);
+    border: 1px solid var(--card-border); border-radius: 20px;
+    padding: 28px; box-shadow: var(--card-shadow);
+  }
+  .fit-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.14em;
+  }
+  .fit-card.good .fit-head { color: var(--accent-teal); }
+  .fit-card.bad .fit-head { color: #d44848; }
+  body[data-theme="dark"] .fit-card.bad .fit-head { color: #ff7373; }
+  .fit-list { list-style: none; padding: 0; margin: 0; }
+  .fit-list li {
+    padding: 10px 0; border-bottom: 1px solid var(--divider);
+    font-size: 14px; color: var(--ink); line-height: 1.5; display: flex; gap: 10px;
+  }
+  .fit-list li:last-child { border-bottom: none; }
+  .fit-list li::before { content: ""; font-weight: 800; flex-shrink: 0; font-family: monospace; }
+  .fit-card.good .fit-list li::before { content: "+"; color: var(--accent-teal); }
+  .fit-card.bad .fit-list li::before { content: "−"; color: #d44848; }
+  body[data-theme="dark"] .fit-card.bad .fit-list li::before { color: #ff7373; }
+
+  /* PRICING */
+  .pricing-section {
+    position: relative; z-index: 1; max-width: 720px; margin: 0 auto;
+    padding: 60px 40px;
+  }
+  .pricing-card {
+    background: var(--card-bg); backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 28px;
+    padding: 44px 40px; box-shadow: var(--card-shadow);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .pricing-card::before, .pricing-card::after {
+    content:""; position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none;
+  }
+  .pricing-card::before { width: 200px; height: 200px; top: -60px; left: -60px; background: radial-gradient(circle, var(--blob-1), transparent 70%); }
+  .pricing-card::after { width: 240px; height: 240px; bottom: -80px; right: -80px; background: radial-gradient(circle, var(--blob-2), transparent 70%); }
+  .pricing-content { position: relative; z-index: 1; }
+  .price-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px 6px 10px;
+    background: var(--inner-bg); border: 1px solid var(--inner-border);
+    border-radius: 100px; margin-bottom: 22px;
+    font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 800;
+    color: var(--accent-orange); letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .price-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent-orange); box-shadow: 0 0 10px var(--accent-orange);
+    animation: pulse 2.5s infinite;
+  }
+  .price-big {
+    font-size: 88px; font-weight: 800; letter-spacing: -0.05em; line-height: 1;
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .price-meta {
+    font-family: "JetBrains Mono", monospace; font-size: 13px;
+    color: var(--ink-faint); margin-bottom: 26px;
+  }
+  .price-meta strong { color: var(--ink); font-weight: 700; }
+  .price-progress {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 28px;
+    background: var(--inner-bg); padding: 14px 18px;
+    border-radius: 12px; border: 1px solid var(--inner-border);
+  }
+  .price-progress-bar {
+    flex: 1; height: 6px; background: rgba(26,43,44,0.1); border-radius: 100px; overflow: hidden;
+  }
+  body[data-theme="dark"] .price-progress-bar { background: rgba(255,255,255,0.1); }
+  .price-progress-fill {
+    height: 100%; background: linear-gradient(90deg, var(--accent-orange), var(--accent-teal));
+    border-radius: 100px; width: 30%;
+  }
+  .price-progress-text {
+    font-family: "JetBrains Mono", monospace; font-size: 12px;
+    color: var(--ink); font-weight: 700;
+  }
+  .price-guarantee {
+    font-size: 13px; color: var(--ink-soft); margin-top: 16px; line-height: 1.5;
+  }
+  .price-guarantee strong { color: var(--ink); font-weight: 700; }
+
+  /* FAQ */
+  .faq-item {
+    background: var(--card-bg); backdrop-filter: blur(28px);
+    border: 1px solid var(--card-border); border-radius: 14px;
+    padding: 0; box-shadow: var(--card-shadow); margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; padding: 18px 22px; background: transparent;
+    border: none; cursor: pointer; text-align: left;
+    font-family: "Aileron", sans-serif; font-size: 15px; font-weight: 700;
+    color: var(--ink); letter-spacing: -0.01em;
+    display: flex; justify-content: space-between; align-items: center; gap: 14px;
+  }
+  .faq-q::after { content: "+"; font-size: 22px; color: var(--accent-orange); font-weight: 400; transition: transform 0.2s; }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+    font-size: 14px; color: var(--ink-soft); line-height: 1.6;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 18px; }
+
+  /* FINAL CTA */
+  .final-cta {
+    text-align: center; padding: 60px 40px 40px;
+    position: relative; z-index: 1;
+  }
+  .final-cta h2 {
+    font-size: 56px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 18px;
+  }
+  .final-cta h2 .accent {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .final-cta-sub {
+    font-size: 17px; color: var(--ink-soft); margin-bottom: 28px;
+    max-width: 50ch; margin-left: auto; margin-right: auto; line-height: 1.5;
+  }
+
+  /* CHATBOT - same as homepage */
+  .cb-toggle {
+    position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    box-shadow: 0 12px 30px rgba(255,138,61,0.45), inset 0 2px 0 rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; border: none;
+  }
+  .cb-toggle svg { width: 50%; height: 50%; transform: rotate(8deg); }
+  .cb-toggle .close-icon { display: none; color: white; font-size: 28px; font-weight: 300; }
+  .cb-toggle.open .spark-icon { display: none; }
+  .cb-toggle.open .close-icon { display: block; }
+  .cb-panel {
+    position: fixed; bottom: 100px; right: 24px; z-index: 1000;
+    width: 380px; max-width: calc(100vw - 48px); height: 540px; max-height: calc(100vh - 140px);
+    background: var(--card-bg); backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 24px;
+    box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3);
+    display: none; flex-direction: column; overflow: hidden;
+  }
+  .cb-panel.open { display: flex; }
+  .cb-head { padding: 18px 20px; border-bottom: 1px solid var(--divider); display: flex; align-items: center; justify-content: space-between; }
+  .cb-head-left { display: flex; align-items: center; gap: 10px; }
+  .cb-head-spark { width: 28px; height: 28px; transform: rotate(8deg); filter: drop-shadow(0 4px 10px rgba(255,138,61,0.4)); }
+  .cb-head-name { font-weight: 800; font-size: 14px; letter-spacing: -0.015em; }
+  .cb-head-status { display: flex; align-items: center; gap: 5px; font-family: "Manrope", sans-serif; font-size: 10px; font-weight: 700; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 0.1em; }
+  .cb-head-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-teal); box-shadow: 0 0 8px var(--accent-teal); animation: pulse 2s infinite; }
+  .cb-body { flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .cb-msg { display: flex; gap: 9px; align-items: flex-start; }
+  .cb-msg.user { flex-direction: row-reverse; }
+  .cb-msg-avatar { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .cb-msg.tdc .cb-msg-avatar { background: linear-gradient(135deg, var(--orange), var(--teal)); }
+  .cb-msg.tdc .cb-msg-avatar svg { width: 55%; height: 55%; transform: rotate(8deg); }
+  .cb-msg.user .cb-msg-avatar { background: rgba(47,158,160,0.2); border: 1px solid rgba(47,158,160,0.3); }
+  .cb-bubble { max-width: 80%; padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.5; }
+  .cb-msg.tdc .cb-bubble { background: var(--inner-bg); border: 1px solid var(--inner-border); color: var(--ink); border-bottom-left-radius: 4px; }
+  .cb-msg.user .cb-bubble { background: linear-gradient(135deg, var(--orange), var(--teal)); color: white; border-bottom-right-radius: 4px; }
+  .cb-typing { display: flex; gap: 4px; padding: 4px 0; }
+  .cb-typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint); animation: typing 1.4s infinite ease-in-out; }
+  .cb-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .cb-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing { 0%, 60%, 100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+  .cb-cta { margin-top: 8px; padding: 9px 14px; background: linear-gradient(135deg, var(--orange), var(--teal)); color: white; border-radius: 100px; font-size: 12px; font-weight: 700; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .cb-input-row { padding: 12px 16px 16px; border-top: 1px solid var(--divider); display: flex; gap: 8px; align-items: center; }
+  .cb-input { flex: 1; padding: 11px 16px; border-radius: 100px; background: var(--inner-bg); border: 1px solid var(--inner-border); font-family: "Aileron", sans-serif; font-size: 13.5px; color: var(--ink); outline: none; }
+  .cb-input::placeholder { color: var(--ink-faint); }
+  .cb-send { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--teal)); border: none; color: white; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: var(--button-shadow); }
+  .cb-send:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  @media (max-width: 900px) {
+    .hero h1 { font-size: 48px; }
+    .deliverables { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr 1fr; }
+    .fit-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .section, .pricing-section { padding: 40px 24px; }
+    .final-cta h2 { font-size: 36px; }
+  }
+</style>
+</head>
+<body data-theme="light">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spark-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8a3d"/>
+      <stop offset="100%" stop-color="#2f9ea0"/>
+    </linearGradient>
+    <symbol id="spark-shape" viewBox="-50 -50 100 100">
+      <g fill="url(#spark-grad)">
+        <rect x="-6" y="-44" width="12" height="88" rx="6"/>
+        <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(60)"/>
+        <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(120)"/>
+      </g>
+    </symbol>
+    <symbol id="spark-shape-white" viewBox="-50 -50 100 100">
+      <g fill="white">
+        <rect x="-6" y="-44" width="12" height="88" rx="6"/>
+        <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(60)"/>
+        <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(120)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="tdc-logo" style="text-decoration:none;">
+      <span>tdc</span><span class="spark-inline"><svg><use href="#spark-shape"/></svg></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/#services">Services</a>
+      <a class="nav-link" href="mailto:hello@thedalycreative.com">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="toggle">
+        <button id="btn-light" class="active">Light</button>
+        <button id="btn-dark">Dark</button>
+      </div>
+      <a class="btn btn-sm" href="#book">Book now →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow"><span class="dot"></span> Founders pricing · 12 of 40 spots taken</div>
+  <h1>Brand, web, and AI automation. <span class="accent">In a day.</span></h1>
+  <p class="hero-sub">One day. Fixed scope. Fixed price. A working AI workflow built around how your business actually runs. No retainer trap, no 12-week timeline, no project creep.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-lg" href="#book">Book a Setup Day →</a>
+    <a class="btn-ghost" href="#what">See what's included</a>
+  </div>
+  <p class="hero-price"><strong>$997 AUD</strong> founders<span class="strike">$1,997</span>· one day · fixed scope · 14-day refund</p>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section" id="what">
+  <div class="section-eyebrow">What you get</div>
+  <h2 class="section-h2">Six concrete deliverables. <span class="accent">All yours.</span></h2>
+  <p class="section-sub">Everything below is on disk by Friday afternoon. No "we'll send the assets next week" energy.</p>
+  <div class="deliverables">
+    <div class="deliverable">
+      <div class="deliverable-num">01</div>
+      <div class="deliverable-name">AI workflow setup</div>
+      <div class="deliverable-desc">One specific repeated task in your business — fully automated. Could be inbox triage, intake forms, document prep, follow-ups, content drafts. You pick.</div>
+    </div>
+    <div class="deliverable">
+      <div class="deliverable-num">02</div>
+      <div class="deliverable-name">Custom AI assistant</div>
+      <div class="deliverable-desc">A Claude Project or custom GPT trained on your business — your tone, your processes, your context. Permanently yours.</div>
+    </div>
+    <div class="deliverable">
+      <div class="deliverable-num">03</div>
+      <div class="deliverable-name">Connected tooling</div>
+      <div class="deliverable-desc">Wired into the tools you already use — Gmail, Notion, Airtable, Slack, your CRM. No new platforms to learn.</div>
+    </div>
+    <div class="deliverable">
+      <div class="deliverable-num">04</div>
+      <div class="deliverable-name">Setup Day report</div>
+      <div class="deliverable-desc">A PDF you can share with your team showing what was built, how it works, what to do if it breaks. Useful even if I'm not around.</div>
+    </div>
+    <div class="deliverable">
+      <div class="deliverable-num">05</div>
+      <div class="deliverable-name">Loom walkthrough</div>
+      <div class="deliverable-desc">A recorded walkthrough you can re-watch (and onboard a new team member with) any time.</div>
+    </div>
+    <div class="deliverable">
+      <div class="deliverable-num">06</div>
+      <div class="deliverable-name">14-day post-launch support</div>
+      <div class="deliverable-desc">Two weeks of Slack/email access to me. Tweaks, edge cases, the inevitable "actually, can it also…"</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+  <div class="section-eyebrow">How it works</div>
+  <h2 class="section-h2">Five days. <span class="accent">One outcome.</span></h2>
+  <p class="section-sub">No discovery phase. No proposal-to-the-board. You book Monday, I build Tues–Thurs, you have a working system Friday.</p>
+  <div class="timeline">
+    <div class="day-card">
+      <div class="day-label">Mon</div>
+      <div class="day-action">Brief call</div>
+      <div class="day-detail">60 minutes. What's eating your time, what's the workflow, what tools you use.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">Tue</div>
+      <div class="day-action">Build (1/3)</div>
+      <div class="day-detail">Wire up tooling. Draft the AI prompts. Test with sample data.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">Wed</div>
+      <div class="day-action">Build (2/3)</div>
+      <div class="day-detail">Iterate based on real outputs. Tune for your voice and process.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">Thu</div>
+      <div class="day-action">Build (3/3)</div>
+      <div class="day-detail">Lock the workflow. Record walkthrough. Write the report.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">Fri</div>
+      <div class="day-action">Walkthrough</div>
+      <div class="day-detail">90-minute live handover. Make tweaks. You leave with it running.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section">
+  <div class="section-eyebrow">Honest fit check</div>
+  <h2 class="section-h2">Setup Day is and isn't for everyone. <span class="accent">Read carefully.</span></h2>
+  <div class="fit-grid">
+    <div class="fit-card good">
+      <div class="fit-head">✓ This is for you if</div>
+      <ul class="fit-list">
+        <li>You're a solo operator or small team (under 20 people).</li>
+        <li>One specific task is eating 5+ hours a week and you'd pay $1k to make it disappear.</li>
+        <li>You already use Gmail / Notion / Airtable / Slack — and you want them to do more.</li>
+        <li>You want to know how the system works, not be locked into a black-box vendor.</li>
+        <li>You can spare 60 minutes on a Monday and 90 minutes on a Friday.</li>
+      </ul>
+    </div>
+    <div class="fit-card bad">
+      <div class="fit-head">✗ This is NOT for you if</div>
+      <ul class="fit-list">
+        <li>You need a 12-month enterprise AI transformation roadmap.</li>
+        <li>You want someone to "just do AI" without a specific problem to solve.</li>
+        <li>Your team is 200+ people across multiple departments.</li>
+        <li>You can't articulate one repeated task that bores you to tears.</li>
+        <li>You want to babysit the build for the whole week.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="book">
+  <div class="pricing-card">
+    <div class="pricing-content">
+      <div class="price-eyebrow"><span class="price-dot"></span>Founders pricing · live</div>
+      <div class="price-big">$997</div>
+      <div class="price-meta"><strong>founders price</strong> · regular <span class="strike">$1,997</span> · AUD</div>
+
+      <div class="price-progress">
+        <div class="price-progress-bar"><div class="price-progress-fill"></div></div>
+        <div class="price-progress-text">12 / 40 taken</div>
+      </div>
+
+      <a class="btn btn-lg" href="mailto:hello@thedalycreative.com?subject=Setup%20Day%20booking&body=Hi%20Tim%2C%0A%0AI'd%20like%20to%20book%20a%20Setup%20Day.%0A%0AMy%20business%3A%0AThe%20task%20I'd%20want%20automated%3A%0AMy%20rough%20timeline%3A%0A%0AThanks%2C">Book your Setup Day →</a>
+
+      <p class="price-guarantee"><strong>14-day money-back guarantee.</strong> If your workflow doesn't save you the price in time within two weeks, full refund. No paperwork, no awkward conversation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-eyebrow">Honest answers</div>
+  <h2 class="section-h2">FAQ.</h2>
+
+  <div class="faq-item">
+    <button class="faq-q">What if I don't know what I want automated?</button>
+    <div class="faq-a"><p>Book the brief call anyway — 60 minutes, free, no obligation. Most people walk away knowing exactly which task to attack first. If we get on the call and there's no clear fit, we don't proceed.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Why $997? What's the catch?</button>
+    <div class="faq-a"><p>No catch. I'm building a 40-customer founders cohort because the testimonials and case studies are worth more to me right now than the extra $1,000 per booking. Once it's full, price returns to $1,997.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Do I need any technical skills?</button>
+    <div class="faq-a"><p>No. If you can use Gmail and Notion, you can run what we build. The walkthrough is recorded so anyone on your team can watch it.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Where are you based? Do I need to be in WA?</button>
+    <div class="faq-a"><p>Perth, WA. But Setup Days are 100% remote — Zoom calls and async build. I've worked with clients in Sydney, Melbourne, Auckland, and London. WA is just where the coffee comes from.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">What if my workflow is more complex than one day?</button>
+    <div class="faq-a"><p>Honest answer: most workflows aren't. The brief call will tell us. If yours genuinely needs more, we'll talk about the Done-For-You path ($5k+, multi-week). I won't sell you a Setup Day that can't deliver.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">What's the refund actually look like?</button>
+    <div class="faq-a"><p>Email me within 14 days of the Friday walkthrough. I'll refund in full, no questions asked, no "exit interview." Has happened twice in 12 months — both refunds processed the same day.</p></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Ready to do this <span class="accent">properly</span>?</h2>
+  <p class="final-cta-sub">$997 founders pricing, first 40 only, 12 spots already taken. Once it fills, that's the price gone.</p>
+  <a class="btn btn-lg" href="mailto:hello@thedalycreative.com?subject=Setup%20Day%20booking">Book your Setup Day →</a>
+</section>
+
+<!-- CHATBOT -->
+<button class="cb-toggle" id="cb-toggle" aria-label="Open chat">
+  <svg class="spark-icon"><use href="#spark-shape-white"/></svg>
+  <span class="close-icon">×</span>
+</button>
+<div class="cb-panel" id="cb-panel" role="dialog">
+  <div class="cb-head">
+    <div class="cb-head-left">
+      <div class="cb-head-spark"><svg><use href="#spark-shape"/></svg></div>
+      <div>
+        <div class="cb-head-name">tdc · ai assistant</div>
+        <div class="cb-head-status"><div class="cb-head-dot"></div>Live</div>
+      </div>
+    </div>
+  </div>
+  <div class="cb-body" id="cb-body"></div>
+  <div class="cb-input-row">
+    <input type="text" class="cb-input" id="cb-input" placeholder="What's on your mind?" autocomplete="off">
+    <button class="cb-send" id="cb-send" aria-label="Send">↑</button>
+  </div>
+</div>
+
+<script src="/chatbot.js"></script>
+<script>
+  document.getElementById('btn-dark').addEventListener('click', () => {
+    document.body.setAttribute('data-theme', 'dark');
+    document.getElementById('btn-dark').classList.add('active');
+    document.getElementById('btn-light').classList.remove('active');
+  });
+  document.getElementById('btn-light').addEventListener('click', () => {
+    document.body.setAttribute('data-theme', 'light');
+    document.getElementById('btn-light').classList.add('active');
+    document.getElementById('btn-dark').classList.remove('active');
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Daly Creative · Brand, web, and AI automation</title>
+<meta name="description" content="Brand identity, web design, and AI automation for solo operators and small businesses in WA. Setup Days from $997.">
+<meta property="og:title" content="The Daly Creative">
+<meta property="og:description" content="Brand, web, and AI automation. Setup Days from $997. First 40 customers only.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thedalycreative.com">
+<link rel="icon" type="image/svg+xml" href="/assets/tdc-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+  @import url('https://fonts.cdnfonts.com/css/aileron');
+
+  :root { --teal: #2f9ea0; --orange: #ff8a3d; }
+
+  body[data-theme="light"] {
+    --bg-grad-1: rgba(47,158,160,0.18); --bg-grad-2: rgba(255,138,61,0.22);
+    --bg-base-1: #d8ecec; --bg-base-2: #fff5e8; --bg-base-3: #ffdcc1;
+    --card-bg: rgba(255,255,255,0.6); --card-border: rgba(255,255,255,0.8);
+    --card-shadow: 0 30px 60px -20px rgba(47,158,160,0.25), 0 4px 16px rgba(0,0,0,0.04);
+    --nav-bg: rgba(255,255,255,0.7);
+    --inner-bg: rgba(255,255,255,0.72); --inner-border: rgba(255,255,255,0.9);
+    --ink: #1a2b2c; --ink-soft: #5a6e70; --ink-faint: #8a9c9e;
+    --divider: rgba(26,43,44,0.08);
+    --accent-teal: #2f9ea0; --accent-orange: #ff8a3d;
+    --button-bg: linear-gradient(135deg, #ff8a3d 0%, #2f9ea0 100%);
+    --button-shadow: 0 10px 24px rgba(255,138,61,0.35);
+    --blob-1: rgba(47,158,160,0.5); --blob-2: rgba(255,138,61,0.45);
+  }
+  body[data-theme="dark"] {
+    --bg-grad-1: rgba(47,158,160,0.25); --bg-grad-2: rgba(255,138,61,0.28);
+    --bg-base-1: #0a1314; --bg-base-2: #1a2426; --bg-base-3: #11181a;
+    --card-bg: rgba(255,255,255,0.055); --card-border: rgba(255,255,255,0.12);
+    --card-shadow: 0 30px 60px -20px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.2);
+    --nav-bg: rgba(255,255,255,0.04);
+    --inner-bg: rgba(255,255,255,0.04); --inner-border: rgba(255,255,255,0.08);
+    --ink: #eef5f5; --ink-soft: #a8b8b9; --ink-faint: #6a7a7c;
+    --divider: rgba(255,255,255,0.08);
+    --accent-teal: #4ebac0; --accent-orange: #ff9e5a;
+    --button-bg: linear-gradient(135deg, #ff9e5a 0%, #4ebac0 100%);
+    --button-shadow: 0 10px 24px rgba(255,138,61,0.35);
+    --blob-1: rgba(47,158,160,0.45); --blob-2: rgba(255,138,61,0.45);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    min-height: 100vh;
+    font-family: "Aileron", "Manrope", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(at 10% 15%, var(--bg-grad-1) 0%, transparent 55%),
+      radial-gradient(at 90% 85%, var(--bg-grad-2) 0%, transparent 55%),
+      linear-gradient(135deg, var(--bg-base-1) 0%, var(--bg-base-2) 50%, var(--bg-base-3) 100%);
+    background-attachment: fixed;
+    transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.3s ease;
+    overflow-x: hidden;
+  }
+  body::before, body::after {
+    content:""; position: fixed; border-radius: 50%;
+    filter: blur(100px); z-index: 0; pointer-events: none;
+  }
+  body::before { width:620px; height:620px; background:radial-gradient(circle,var(--blob-1),transparent 70%); top:-180px; left:-200px; }
+  body::after { width:680px; height:680px; background:radial-gradient(circle,var(--blob-2),transparent 70%); bottom:-200px; right:-220px; }
+
+  /* TDC logo */
+  .tdc-logo {
+    display: inline-flex; align-items: baseline; line-height: 1;
+    color: var(--ink); font-family: "Aileron", sans-serif;
+    font-weight: 800; letter-spacing: -0.05em;
+  }
+  .spark-inline {
+    display: inline-block; width: 0.78em; height: 0.78em;
+    margin-left: 0.12em; transform: translateY(-0.06em) rotate(8deg);
+    filter: drop-shadow(0 0.06em 0.16em rgba(255,138,61,0.4));
+  }
+  .spark-inline svg { width: 100%; height: 100%; display: block; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 16px; z-index: 100;
+    max-width: 1280px; margin: 16px auto 0; padding: 0 24px;
+  }
+  .nav-inner {
+    background: var(--nav-bg); backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 100px;
+    padding: 10px 12px 10px 24px; box-shadow: var(--card-shadow);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    transition: all 0.5s ease;
+  }
+  .nav .tdc-logo { font-size: 24px; }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-link {
+    font-family: "Aileron", sans-serif; font-weight: 700; font-size: 13px;
+    color: var(--ink-soft); text-decoration: none; letter-spacing: -0.005em;
+    transition: color 0.2s ease;
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+
+  .toggle {
+    display: flex; align-items: center; gap: 4px;
+    background: var(--inner-bg); border: 1px solid var(--inner-border);
+    border-radius: 100px; padding: 3px;
+  }
+  .toggle button {
+    font-family: "Manrope", sans-serif; font-weight: 700; font-size: 10.5px;
+    padding: 6px 11px; border: none; background: transparent;
+    color: var(--ink-faint); border-radius: 100px; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .toggle button.active { background: var(--button-bg); color: white; box-shadow: var(--button-shadow); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px;
+    background: var(--button-bg); color: white;
+    border-radius: 100px; font-family: "Aileron", sans-serif;
+    font-size: 13.5px; font-weight: 700;
+    box-shadow: var(--button-shadow); text-decoration: none; border: none;
+    transition: transform 0.2s ease; cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-sm { padding: 9px 16px; font-size: 12.5px; }
+  .btn-lg { padding: 16px 28px; font-size: 15px; }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-bg); backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border); border-radius: 100px;
+    font-family: "Aileron", sans-serif; font-size: 13.5px; font-weight: 700;
+    color: var(--ink); text-decoration: none;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative; z-index: 1; max-width: 1280px; margin: 0 auto;
+    padding: 90px 40px 70px;
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 14px 7px 10px;
+    background: var(--card-bg); backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border); border-radius: 100px;
+    font-family: "Manrope", sans-serif; font-size: 11.5px; font-weight: 700;
+    color: var(--ink-soft); margin-bottom: 26px;
+    box-shadow: var(--card-shadow);
+  }
+  .eyebrow .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent-orange); box-shadow: 0 0 12px var(--accent-orange);
+    animation: pulse 2.5s infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+  .hero-h1 {
+    font-size: 80px; font-weight: 800; line-height: 0.96;
+    letter-spacing: -0.045em; color: var(--ink); margin-bottom: 24px;
+  }
+  .hero-h1 .accent {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 19px; line-height: 1.5; color: var(--ink-soft);
+    margin-bottom: 32px; max-width: 50ch;
+  }
+  .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+  .hero-price {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12px; color: var(--ink-faint);
+  }
+  .hero-price strong { color: var(--ink); font-weight: 700; }
+  .strike { text-decoration: line-through; opacity: 0.5; margin-left: 6px; }
+
+  .trust { padding-top: 28px; border-top: 1px solid var(--divider); }
+  .trust-label {
+    font-family: "Manrope", sans-serif; font-size: 10.5px;
+    font-weight: 700; color: var(--ink-faint);
+    text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px;
+  }
+  .trust-row {
+    display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
+    font-family: "Aileron", sans-serif; font-weight: 700; font-size: 15px;
+    color: var(--ink-faint); letter-spacing: -0.015em; opacity: 0.75;
+  }
+
+  /* HERO RIGHT - chat preview card */
+  .chat-preview {
+    background: var(--card-bg); backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 28px;
+    padding: 22px; box-shadow: var(--card-shadow);
+    transform: rotate(-1deg); position: relative; overflow: hidden;
+  }
+  .chat-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--divider);
+  }
+  .chat-head-left { display: flex; align-items: center; gap: 9px; }
+  .chat-spark {
+    width: 24px; height: 24px; transform: rotate(8deg);
+    filter: drop-shadow(0 4px 10px rgba(255,138,61,0.4));
+  }
+  .chat-spark svg { width: 100%; height: 100%; display: block; }
+  .chat-head-name { font-weight: 800; font-size: 13.5px; letter-spacing: -0.015em; }
+  .live-status {
+    display: flex; align-items: center; gap: 6px;
+    font-family: "Manrope", sans-serif; font-size: 10.5px;
+    font-weight: 700; color: var(--accent-teal);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .live-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-teal); box-shadow: 0 0 8px var(--accent-teal);
+    animation: pulse 2s infinite;
+  }
+  .chat-row {
+    display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px;
+  }
+  .chat-avatar {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    position: relative; overflow: hidden;
+  }
+  .chat-avatar.user { background: rgba(47,158,160,0.2); border: 1px solid rgba(47,158,160,0.3); }
+  .chat-avatar.tdc {
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .chat-avatar.tdc svg { width: 55%; height: 55%; transform: rotate(8deg); }
+  .chat-text .who {
+    display: block; font-family: "Manrope", sans-serif;
+    font-size: 10px; font-weight: 700; color: var(--ink-faint);
+    margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .chat-text .msg { font-size: 13px; line-height: 1.45; color: var(--ink); }
+  .chat-input-mock {
+    margin-top: 14px; padding: 11px 14px;
+    background: var(--inner-bg); border: 1px solid var(--inner-border);
+    border-radius: 100px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  }
+  .chat-input-mock-text { font-size: 12px; color: var(--ink-faint); font-style: italic; }
+  .chat-send-mock {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--button-bg); display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 11px; font-weight: 800; box-shadow: var(--button-shadow);
+  }
+
+  /* SECTIONS */
+  .section {
+    position: relative; z-index: 1; max-width: 1280px; margin: 0 auto;
+    padding: 60px 40px;
+  }
+  .section-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
+  }
+  .section-title {
+    font-size: 38px; font-weight: 800; letter-spacing: -0.035em;
+    color: var(--ink); line-height: 1.05;
+  }
+  .section-title .accent {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .section-sub {
+    font-size: 14px; color: var(--ink-soft); max-width: 50ch; line-height: 1.55;
+    margin-top: 8px;
+  }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .service-card {
+    background: var(--card-bg); backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 24px;
+    padding: 32px 28px; box-shadow: var(--card-shadow);
+    position: relative; overflow: hidden;
+  }
+  .service-num {
+    font-family: "Manrope", sans-serif; font-size: 10.5px;
+    font-weight: 800; color: var(--accent-orange);
+    letter-spacing: 0.16em; margin-bottom: 12px;
+  }
+  .service-name {
+    font-size: 24px; font-weight: 800; letter-spacing: -0.025em;
+    margin-bottom: 10px;
+  }
+  .service-desc {
+    font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 16px;
+  }
+  .service-list {
+    font-family: "Manrope", sans-serif; font-size: 11.5px;
+    color: var(--ink-soft); line-height: 1.7;
+  }
+  .service-list span::before { content: "↳ "; color: var(--accent-orange); }
+
+  /* SETUP DAY BLOCK */
+  .setup-block {
+    background: linear-gradient(135deg, rgba(255,138,61,0.06), rgba(47,158,160,0.06));
+    border: 1px solid var(--card-border); border-radius: 32px;
+    padding: 48px 40px; backdrop-filter: blur(28px); position: relative; overflow: hidden;
+  }
+  .setup-block::before, .setup-block::after {
+    content: ""; position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
+  }
+  .setup-block::before { width: 280px; height: 280px; top: -100px; left: -80px; background: radial-gradient(circle, var(--blob-1), transparent 70%); }
+  .setup-block::after { width: 320px; height: 320px; bottom: -120px; right: -100px; background: radial-gradient(circle, var(--blob-2), transparent 70%); }
+  .setup-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .setup-eyebrow { color: var(--accent-orange); font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 14px; }
+  .setup-h2 { font-size: 44px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 14px; }
+  .setup-sub { font-size: 16px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 24px; max-width: 50ch; }
+  .setup-includes { list-style: none; padding: 0; margin: 0 0 24px; }
+  .setup-includes li {
+    padding: 10px 0; border-bottom: 1px solid var(--divider);
+    font-size: 14px; color: var(--ink); display: flex; gap: 12px;
+  }
+  .setup-includes li::before { content: "✓"; color: var(--accent-teal); font-weight: 800; font-size: 16px; }
+  .setup-price-card {
+    background: var(--card-bg); backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 24px;
+    padding: 28px; box-shadow: var(--card-shadow);
+  }
+  .setup-price {
+    font-size: 56px; font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+  .setup-price-meta {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    color: var(--ink-faint); margin-bottom: 22px;
+  }
+  .setup-price-meta strong { color: var(--ink); font-weight: 700; }
+  .setup-cap {
+    padding: 12px 14px; background: var(--inner-bg);
+    border-radius: 10px; font-size: 12px; color: var(--ink-soft);
+    margin-bottom: 18px; line-height: 1.5;
+  }
+  .setup-cap strong { color: var(--accent-orange); font-weight: 800; }
+
+  /* SOCIAL PROOF */
+  .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .testimonial {
+    background: var(--card-bg); backdrop-filter: blur(28px);
+    border: 1px solid var(--card-border); border-radius: 22px;
+    padding: 28px; box-shadow: var(--card-shadow);
+  }
+  .testimonial-quote {
+    font-size: 16px; line-height: 1.5; color: var(--ink);
+    margin-bottom: 18px; letter-spacing: -0.01em;
+  }
+  .testimonial-attr { display: flex; align-items: center; gap: 12px; }
+  .testimonial-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 800; font-size: 14px; letter-spacing: -0.02em;
+  }
+  .testimonial-name { font-weight: 700; font-size: 13px; }
+  .testimonial-role {
+    font-family: "Manrope", sans-serif; font-size: 10.5px;
+    color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px;
+  }
+
+  /* FOOTER */
+  .footer {
+    position: relative; z-index: 1; max-width: 1280px; margin: 60px auto 0;
+    padding: 40px 40px 32px; border-top: 1px solid var(--divider);
+  }
+  .footer-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; margin-bottom: 28px; }
+  .footer-brand .tdc-logo { font-size: 28px; }
+  .footer-tag { font-size: 13px; color: var(--ink-soft); margin-top: 12px; max-width: 36ch; line-height: 1.5; }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col-title {
+    font-family: "Manrope", sans-serif; font-size: 10.5px; font-weight: 800;
+    color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px;
+  }
+  .footer-col a {
+    display: block; font-family: "Aileron", sans-serif; font-size: 13px;
+    color: var(--ink-soft); text-decoration: none; margin-bottom: 8px;
+  }
+  .footer-col a:hover { color: var(--ink); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: "Manrope", sans-serif; font-size: 11px;
+    color: var(--ink-faint); padding-top: 24px; border-top: 1px solid var(--divider);
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  /* CHATBOT */
+  .cb-toggle {
+    position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    box-shadow: 0 12px 30px rgba(255,138,61,0.45), inset 0 2px 0 rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; border: none; transition: transform 0.2s ease;
+  }
+  .cb-toggle:hover { transform: scale(1.05); }
+  .cb-toggle svg { width: 50%; height: 50%; transform: rotate(8deg); }
+  .cb-toggle .close-icon { display: none; color: white; font-size: 28px; font-weight: 300; }
+  .cb-toggle.open .spark-icon { display: none; }
+  .cb-toggle.open .close-icon { display: block; }
+
+  .cb-panel {
+    position: fixed; bottom: 100px; right: 24px; z-index: 1000;
+    width: 380px; max-width: calc(100vw - 48px); height: 540px; max-height: calc(100vh - 140px);
+    background: var(--card-bg); backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--card-border); border-radius: 24px;
+    box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3), 0 8px 16px rgba(0,0,0,0.1);
+    display: none; flex-direction: column; overflow: hidden;
+  }
+  .cb-panel.open { display: flex; }
+  .cb-head {
+    padding: 18px 20px; border-bottom: 1px solid var(--divider);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cb-head-left { display: flex; align-items: center; gap: 10px; }
+  .cb-head-spark {
+    width: 28px; height: 28px; transform: rotate(8deg);
+    filter: drop-shadow(0 4px 10px rgba(255,138,61,0.4));
+  }
+  .cb-head-name { font-weight: 800; font-size: 14px; letter-spacing: -0.015em; }
+  .cb-head-status {
+    display: flex; align-items: center; gap: 5px;
+    font-family: "Manrope", sans-serif; font-size: 10px;
+    font-weight: 700; color: var(--accent-teal);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .cb-head-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-teal); box-shadow: 0 0 8px var(--accent-teal);
+    animation: pulse 2s infinite;
+  }
+  .cb-body {
+    flex: 1; overflow-y: auto; padding: 18px 20px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .cb-msg { display: flex; gap: 9px; align-items: flex-start; }
+  .cb-msg.user { flex-direction: row-reverse; }
+  .cb-msg-avatar {
+    width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cb-msg.tdc .cb-msg-avatar {
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.4);
+  }
+  .cb-msg.tdc .cb-msg-avatar svg { width: 55%; height: 55%; transform: rotate(8deg); }
+  .cb-msg.user .cb-msg-avatar { background: rgba(47,158,160,0.2); border: 1px solid rgba(47,158,160,0.3); }
+  .cb-bubble {
+    max-width: 80%; padding: 10px 14px; border-radius: 14px;
+    font-size: 13.5px; line-height: 1.5;
+  }
+  .cb-msg.tdc .cb-bubble {
+    background: var(--inner-bg); border: 1px solid var(--inner-border);
+    color: var(--ink); border-bottom-left-radius: 4px;
+  }
+  .cb-msg.user .cb-bubble {
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    color: white; border-bottom-right-radius: 4px;
+  }
+  .cb-typing {
+    display: flex; gap: 4px; padding: 4px 0;
+  }
+  .cb-typing span {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint);
+    animation: typing 1.4s infinite ease-in-out;
+  }
+  .cb-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .cb-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-3px); }
+  }
+  .cb-cta {
+    margin-top: 8px; padding: 9px 14px;
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    color: white; border-radius: 100px; font-size: 12px;
+    font-weight: 700; cursor: pointer; border: none; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .cb-input-row {
+    padding: 12px 16px 16px; border-top: 1px solid var(--divider);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .cb-input {
+    flex: 1; padding: 11px 16px; border-radius: 100px;
+    background: var(--inner-bg); border: 1px solid var(--inner-border);
+    font-family: "Aileron", sans-serif; font-size: 13.5px;
+    color: var(--ink); outline: none;
+  }
+  .cb-input::placeholder { color: var(--ink-faint); }
+  .cb-send {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--teal));
+    border: none; color: white; font-size: 16px; font-weight: 800;
+    cursor: pointer; box-shadow: var(--button-shadow);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cb-send:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 60px 24px 50px; gap: 40px; }
+    .hero-h1 { font-size: 48px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .setup-content { grid-template-columns: 1fr; gap: 32px; }
+    .setup-h2 { font-size: 32px; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .section { padding: 40px 24px; }
+    .footer-cols { gap: 32px; }
+  }
+</style>
+</head>
+<body data-theme="light">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spark-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8a3d"/>
+      <stop offset="100%" stop-color="#2f9ea0"/>
+    </linearGradient>
+    <symbol id="spark-shape" viewBox="-50 -50 100 100">
+      <g fill="url(#spark-grad)">
+        <rect x="-6" y="-44" width="12" height="88" rx="6"/>
+        <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(60)"/>
+        <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(120)"/>
+      </g>
+    </symbol>
+    <symbol id="spark-shape-white" viewBox="-50 -50 100 100">
+      <g fill="white">
+        <rect x="-6" y="-44" width="12" height="88" rx="6"/>
+        <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(60)"/>
+        <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(120)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="tdc-logo" style="text-decoration:none;">
+      <span>tdc</span><span class="spark-inline"><svg><use href="#spark-shape"/></svg></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/setup-day.html">Setup Day</a>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#work">Work</a>
+      <a class="nav-link" href="mailto:hello@thedalycreative.com">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="toggle">
+        <button id="btn-light" class="active">Light</button>
+        <button id="btn-dark">Dark</button>
+      </div>
+      <a class="btn btn-sm" href="/setup-day.html">Setup Day →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="eyebrow"><span class="dot"></span> Founders pricing · first 40 only · 12 spots taken</div>
+    <h1 class="hero-h1">We design brands. <span class="accent">The system</span> runs them.</h1>
+    <p class="hero-sub">Identity, web, and AI automation for solo operators and small businesses in WA. Designed by hand. Run on autopilot. The whole thing — in a day.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-lg" href="/setup-day.html">Book a Setup Day · $997 →</a>
+      <a class="btn-ghost" href="#services">See what we do</a>
+    </div>
+    <p class="hero-price"><strong>$997</strong> founders · regular <span class="strike">$1,997</span> · one day, fixed scope, no retainer</p>
+
+    <div class="trust">
+      <div class="trust-label">Recent work for</div>
+      <div class="trust-row">
+        <span>Fynd Studio</span>
+        <span>Lemon Labs</span>
+        <span>The Bureau</span>
+        <span>Aisle Twelve</span>
+        <span>North &amp; Owl</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="chat-preview">
+      <div class="chat-head">
+        <div class="chat-head-left">
+          <div class="chat-spark"><svg><use href="#spark-shape"/></svg></div>
+          <div class="chat-head-name">tdc · studio</div>
+        </div>
+        <div class="live-status"><div class="live-dot"></div>Live</div>
+      </div>
+      <div class="chat-row">
+        <div class="chat-avatar user"></div>
+        <div class="chat-text">
+          <span class="who">You</span>
+          <span class="msg">I run a regional accountancy. Could AI help us at all?</span>
+        </div>
+      </div>
+      <div class="chat-row">
+        <div class="chat-avatar tdc"><svg><use href="#spark-shape-white"/></svg></div>
+        <div class="chat-text">
+          <span class="who">tdc</span>
+          <span class="msg">Almost certainly. Inbox triage, client intake, follow-ups, document drafting. What's eating most of your time?</span>
+        </div>
+      </div>
+      <div class="chat-row">
+        <div class="chat-avatar user"></div>
+        <div class="chat-text">
+          <span class="who">You</span>
+          <span class="msg">Honestly? Client onboarding paperwork.</span>
+        </div>
+      </div>
+      <div class="chat-row">
+        <div class="chat-avatar tdc"><svg><use href="#spark-shape-white"/></svg></div>
+        <div class="chat-text">
+          <span class="who">tdc</span>
+          <span class="msg">One Setup Day fixes that. We build the intake form, the auto-reply, the document-prep workflow. You walk away with it running by Friday.</span>
+        </div>
+      </div>
+      <div class="chat-input-mock">
+        <span class="chat-input-mock-text">Ask the AI assistant…</span>
+        <div class="chat-send-mock">↑</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-head">
+    <div>
+      <h2 class="section-title">What <span class="accent">we do</span></h2>
+      <p class="section-sub">Three things, properly. No retainer trap. No agency theatrics.</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01 · Identity</div>
+      <div class="service-name">Brand systems</div>
+      <div class="service-desc">Logos, type, colour, and the rules of engagement. Designed to scale, easy to apply, hard to break.</div>
+      <div class="service-list">
+        <span>Logo &amp; mark</span>
+        <span>Type &amp; colour system</span>
+        <span>Brand guidelines &amp; tokens</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02 · Web</div>
+      <div class="service-name">Site design &amp; build</div>
+      <div class="service-desc">Marketing sites, product pages, portfolios. Fast, accessible, and authored so you can update copy without us.</div>
+      <div class="service-list">
+        <span>Marketing &amp; landing pages</span>
+        <span>Lead-gen funnels</span>
+        <span>CMS &amp; copy hand-off</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03 · Automation</div>
+      <div class="service-name">AI workflows</div>
+      <div class="service-desc">Custom GPTs, Claude projects, and automation that does the boring bits. Built around how your business actually runs.</div>
+      <div class="service-list">
+        <span>Custom AI assistants</span>
+        <span>Workflow automation</span>
+        <span>Inbox &amp; intake AI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP DAY -->
+<section class="section" id="setup-day">
+  <div class="setup-block">
+    <div class="setup-content">
+      <div>
+        <div class="setup-eyebrow">The lead offer</div>
+        <h2 class="setup-h2">Brand, web, and AI automation. <span style="background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">In a day.</span></h2>
+        <p class="setup-sub">One day. Fixed scope. A working AI workflow built around how your business actually runs. No retainer trap, no 12-week timeline, no project-creep.</p>
+        <ul class="setup-includes">
+          <li>One-hour brief on a Monday</li>
+          <li>I build your AI workflow Tuesday–Thursday</li>
+          <li>Live walkthrough Friday — yours forever</li>
+          <li>14-day post-launch support included</li>
+          <li>Setup Day report you can share with your team</li>
+        </ul>
+        <a class="btn btn-lg" href="/setup-day.html">Book a Setup Day →</a>
+      </div>
+      <div class="setup-price-card">
+        <div class="setup-price">$997</div>
+        <div class="setup-price-meta"><strong>founders price</strong> · regular <span class="strike">$1,997</span> · AUD</div>
+        <div class="setup-cap">
+          <strong>First 40 customers only.</strong> 12 spots taken. Once founders cohort fills, price returns to $1,997.
+        </div>
+        <p style="font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 16px;">
+          14-day money-back guarantee. If the workflow doesn't pay for itself in time saved within two weeks, full refund.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="work">
+  <div class="section-head">
+    <div>
+      <h2 class="section-title">What clients <span class="accent">actually say</span></h2>
+      <p class="section-sub">Real words. Edited only for brevity.</p>
+    </div>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <div class="testimonial-quote">"Tim built an AI intake assistant for our consultancy in a single afternoon. It now handles 60% of the back-and-forth I used to do by email."</div>
+      <div class="testimonial-attr">
+        <div class="testimonial-avatar">JK</div>
+        <div>
+          <div class="testimonial-name">Jess Kovac</div>
+          <div class="testimonial-role">Founder · Aisle Twelve</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-quote">"Brand felt designed, not generated. The handover doc was sharper than the actual brief I gave him. We've been using the system for six months without a single edit."</div>
+      <div class="testimonial-attr">
+        <div class="testimonial-avatar">MD</div>
+        <div>
+          <div class="testimonial-name">Marc Davies</div>
+          <div class="testimonial-role">Director · The Bureau</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-row">
+    <div class="footer-brand">
+      <div class="tdc-logo"><span>tdc</span><span class="spark-inline"><svg><use href="#spark-shape"/></svg></span></div>
+      <div class="footer-tag">Brand, web, and AI automation. Done properly. Built in Perth, working everywhere.</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title">Studio</div>
+        <a href="/setup-day.html">Setup Day · $997</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="mailto:hello@thedalycreative.com">hello@thedalycreative.com</a>
+        <a href="https://thedalycreative.com">thedalycreative.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Daly Creative · ABN to come · Perth, WA</span>
+    <span>Made with too much coffee &amp; just enough caffeine</span>
+  </div>
+</footer>
+
+<!-- CHATBOT -->
+<button class="cb-toggle" id="cb-toggle" aria-label="Open chat">
+  <svg class="spark-icon"><use href="#spark-shape-white"/></svg>
+  <span class="close-icon">×</span>
+</button>
+<div class="cb-panel" id="cb-panel" role="dialog" aria-label="TDC AI assistant">
+  <div class="cb-head">
+    <div class="cb-head-left">
+      <div class="cb-head-spark"><svg><use href="#spark-shape"/></svg></div>
+      <div>
+        <div class="cb-head-name">tdc · ai assistant</div>
+        <div class="cb-head-status"><div class="cb-head-dot"></div>Live</div>
+      </div>
+    </div>
+  </div>
+  <div class="cb-body" id="cb-body">
+    <!-- messages injected here -->
+  </div>
+  <div class="cb-input-row">
+    <input type="text" class="cb-input" id="cb-input" placeholder="What's on your mind?" autocomplete="off">
+    <button class="cb-send" id="cb-send" aria-label="Send">↑</button>
+  </div>
+</div>
+
+<script src="/chatbot.js"></script>
+<script>
+  const body = document.body;
+  document.getElementById('btn-dark').addEventListener('click', () => {
+    body.setAttribute('data-theme', 'dark');
+    document.getElementById('btn-dark').classList.add('active');
+    document.getElementById('btn-light').classList.remove('active');
+  });
+  document.getElementById('btn-light').addEventListener('click', () => {
+    body.setAttribute('data-theme', 'light');
+    document.getElementById('btn-light').classList.add('active');
+    document.getElementById('btn-dark').classList.remove('active');
+  });
+</script>
+</body>
+</html>

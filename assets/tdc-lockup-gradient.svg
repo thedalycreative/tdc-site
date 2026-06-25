@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2407 1200" width="2407" height="1200">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8a3d"/>
+      <stop offset="100%" stop-color="#2f9ea0"/>
+    </linearGradient>
+  </defs>
+  <!-- Wordmark "tdc" — Aileron Heavy, outlined to paths -->
+  <g fill="#1a2b2c" transform="translate(0, 970) scale(1, -1)">
+    <path d="M247 429H360V529H247V663H90V529H9V429H90V184C90 154 90 130 92 103C98 25 136 -13 253 -13C287 -13 318 -10 350 -5V95C270 90 252 102 248 155C247 169 247 187 247 205Z" transform="translate(0, 0)"/>
+    <path d="M596 735H439V463L404 519C377 536 324 547 280 547C143 547 26 447 26 256C26 98 115 -14 262 -14C316 -14 369 -2 399 21L439 80V0H596ZM312 94C238 94 187 160 187 265C187 381 241 439 317 439C376 439 439 399 439 285V260C439 138 383 94 312 94Z" transform="translate(328, 0)"/>
+    <path d="M299 547C148 547 26 445 26 262C26 81 138 -14 286 -14C425 -14 527 55 548 189H393C381 127 343 94 295 94C230 94 187 148 187 272C187 385 229 439 295 439C347 439 384 409 395 336H548C540 455 448 547 299 547Z" transform="translate(934, 0)"/>
+  </g>
+  <!-- Spark mark -->
+  <g transform="translate(2017.0, 520.0) rotate(8) scale(7.8)" fill="url(#g)">
+    <rect x="-6" y="-44" width="12" height="88" rx="6"/>
+    <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(60)"/>
+    <rect x="-6" y="-44" width="12" height="88" rx="6" transform="rotate(120)"/>
+  </g>
+</svg>
